@@ -5,15 +5,12 @@ import { useToast } from '@/hooks/use-toast';
 
 // Import wallpapers
 import teachersDayDesktop from '@/assets/wallpapers/teachers-day-desktop.jpg';
-import motivationalDesktop from '@/assets/wallpapers/motivational-desktop.jpg';
 import classroomDesktop from '@/assets/wallpapers/classroom-desktop.jpg';
-import inspirationalMobile from '@/assets/wallpapers/inspirational-mobile.jpg';
 import floralMobile from '@/assets/wallpapers/floral-mobile.jpg';
 
 // Import cards
 import thankYouCard from '@/assets/cards/thank-you-card.jpg';
 import appreciationCard from '@/assets/cards/appreciation-card.jpg';
-import customMessageCard from '@/assets/cards/custom-message-card.jpg';
 
 export const DigitalGifts = () => {
   const { toast } = useToast();
@@ -45,7 +42,7 @@ export const DigitalGifts = () => {
         { 
           name: "Motivational Quotes", 
           type: "4K Desktop Wallpaper", 
-          action: () => downloadFile(motivationalDesktop, "motivational-wallpaper.jpg", "Motivational wallpaper") 
+          action: () => downloadFile('https://i.pinimg.com/736x/bf/ce/00/bfce002eb936a956caf1c25fd002f74f.jpg', "motivational-wallpaper.jpg", "Motivational wallpaper") 
         },
         { 
           name: "Classroom Memories", 
@@ -61,7 +58,7 @@ export const DigitalGifts = () => {
         { 
           name: "Inspirational", 
           type: "Mobile Wallpaper", 
-          action: () => downloadFile(inspirationalMobile, "inspirational-mobile.jpg", "Inspirational mobile wallpaper") 
+          action: () => downloadFile('https://i.pinimg.com/736x/f1/04/c5/f104c512d89e46578546ef4501cd36a5.jpg', "inspirational-mobile.jpg", "Inspirational mobile wallpaper") 
         },
         { 
           name: "Floral Design", 
@@ -91,7 +88,7 @@ export const DigitalGifts = () => {
   return (
     <Card className="card-festive">
       <CardHeader className="text-center">
-        <div className="text-4xl mb-2">🎁</div>
+        <div className="text-4xl mb-2"></div>
         <CardTitle className="text-2xl font-bold text-gradient">
           Digital Tech Gifts
         </CardTitle>
@@ -138,7 +135,7 @@ export const DigitalGifts = () => {
         
         <div className="text-center mt-6 p-4 bg-muted/30 rounded-lg">
           <p className="text-sm text-muted-foreground">
-            💡 <strong>Tip:</strong> Right-click and "Save As" to keep these beautiful gifts on your device!
+            <strong>Tip:</strong> Right-click and "Save As" to keep these beautiful gifts on your device!
           </p>
         </div>
       </CardContent>
