@@ -84,11 +84,6 @@ export const DigitalGifts = () => {
           type: "Digital Card", 
           action: () => downloadFile(appreciationCard, "appreciation-card.jpg", "Appreciation card") 
         },
-        { 
-          name: "Custom Message Card", 
-          type: "Personalized Card", 
-          action: () => downloadFile(customMessageCard, "custom-message-card.jpg", "Custom Message card") 
-        }
       ]
     }
   ];
