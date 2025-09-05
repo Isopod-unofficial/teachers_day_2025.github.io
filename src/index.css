@@ -131,8 +131,12 @@
 
   .btn-celebration {
     @apply bg-secondary text-secondary-foreground;
-    @apply shadow-warm hover:shadow-festive;
     @apply transition-all duration-300 hover:scale-105;
+    box-shadow: var(--shadow-warm);
+  }
+
+  .btn-celebration:hover {
+    box-shadow: var(--shadow-festive);
   }
 
   /* Card Variants */
