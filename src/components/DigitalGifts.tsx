@@ -3,23 +3,33 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { useToast } from '@/hooks/use-toast';
 
+// Import wallpapers
+import teachersDayDesktop from '@/assets/wallpapers/teachers-day-desktop.jpg';
+import motivationalDesktop from '@/assets/wallpapers/motivational-desktop.jpg';
+import classroomDesktop from '@/assets/wallpapers/classroom-desktop.jpg';
+import inspirationalMobile from '@/assets/wallpapers/inspirational-mobile.jpg';
+import floralMobile from '@/assets/wallpapers/floral-mobile.jpg';
+
+// Import cards
+import thankYouCard from '@/assets/cards/thank-you-card.jpg';
+import appreciationCard from '@/assets/cards/appreciation-card.jpg';
+import customMessageCard from '@/assets/cards/custom-message-card.jpg';
+
 export const DigitalGifts = () => {
   const { toast } = useToast();
 
-  const downloadWallpaper = (type: string) => {
+  const downloadFile = (url: string, filename: string, type: string) => {
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
     toast({
       title: "Download Started!",
-      description: `Your ${type} wallpaper is being prepared for download.`,
+      description: `Your ${type} is downloading now.`,
     });
-    // In a real app, this would trigger an actual download
-  };
-
-  const downloadCard = (type: string) => {
-    toast({
-      title: "Card Ready!",
-      description: `Your ${type} greeting card has been generated.`,
-    });
-    // In a real app, this would trigger an actual download
   };
 
   const gifts = [
@@ -27,26 +37,58 @@ export const DigitalGifts = () => {
       category: "Desktop Wallpapers",
       icon: "🖥️",
       items: [
-        { name: "Teachers' Day Special", type: "HD Desktop Wallpaper", action: () => downloadWallpaper("Teachers' Day Special") },
-        { name: "Motivational Quotes", type: "4K Desktop Wallpaper", action: () => downloadWallpaper("Motivational Quotes") },
-        { name: "Classroom Memories", type: "HD Desktop Wallpaper", action: () => downloadWallpaper("Classroom Memories") }
+        { 
+          name: "Teachers' Day Special", 
+          type: "HD Desktop Wallpaper", 
+          action: () => downloadFile(teachersDayDesktop, "teachers-day-wallpaper.jpg", "Teachers' Day wallpaper") 
+        },
+        { 
+          name: "Motivational Quotes", 
+          type: "4K Desktop Wallpaper", 
+          action: () => downloadFile(motivationalDesktop, "motivational-wallpaper.jpg", "Motivational wallpaper") 
+        },
+        { 
+          name: "Classroom Memories", 
+          type: "HD Desktop Wallpaper", 
+          action: () => downloadFile(classroomDesktop, "classroom-wallpaper.jpg", "Classroom wallpaper") 
+        }
       ]
     },
     {
       category: "Mobile Wallpapers",
       icon: "📱",
       items: [
-        { name: "Inspirational", type: "Mobile Wallpaper", action: () => downloadWallpaper("Inspirational Mobile") },
-        { name: "Floral Design", type: "Mobile Wallpaper", action: () => downloadWallpaper("Floral Mobile") }
+        { 
+          name: "Inspirational", 
+          type: "Mobile Wallpaper", 
+          action: () => downloadFile(inspirationalMobile, "inspirational-mobile.jpg", "Inspirational mobile wallpaper") 
+        },
+        { 
+          name: "Floral Design", 
+          type: "Mobile Wallpaper", 
+          action: () => downloadFile(floralMobile, "floral-mobile.jpg", "Floral mobile wallpaper") 
+        }
       ]
     },
     {
       category: "Greeting Cards",
       icon: "💌",
       items: [
-        { name: "Thank You Card", type: "Digital Card", action: () => downloadCard("Thank You") },
-        { name: "Appreciation Card", type: "Digital Card", action: () => downloadCard("Appreciation") },
-        { name: "Custom Message Card", type: "Personalized Card", action: () => downloadCard("Custom Message") }
+        { 
+          name: "Thank You Card", 
+          type: "Digital Card", 
+          action: () => downloadFile(thankYouCard, "thank-you-card.jpg", "Thank You card") 
+        },
+        { 
+          name: "Appreciation Card", 
+          type: "Digital Card", 
+          action: () => downloadFile(appreciationCard, "appreciation-card.jpg", "Appreciation card") 
+        },
+        { 
+          name: "Custom Message Card", 
+          type: "Personalized Card", 
+          action: () => downloadFile(customMessageCard, "custom-message-card.jpg", "Custom Message card") 
+        }
       ]
     }
   ];
